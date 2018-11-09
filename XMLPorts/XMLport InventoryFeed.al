@@ -40,6 +40,7 @@ xmlport 70149350 InventoryFeed
                 }
                 textelement(tstatus)
                 {
+                    MaxOccurs = Once;
                     XmlName = 'Status';
                 }
                 textelement(tmapprice)

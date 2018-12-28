@@ -7,6 +7,7 @@ table 70149350 CustomerAPIControl
     {
         field(1;APIIdentifier;Code[36])
         {
+            CaptionClass = 'API Identifier';
         }
         field(3;CustomerNo;Code[10])
         {

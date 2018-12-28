@@ -54,5 +54,50 @@ codeunit 70149350 CustomerAPI
     begin
         NoSeriesMgt.InitSeries(NoSeriesCode,'',TODAY,NextNumber,NoSeriesCode);
     end;
+
+
+    [EventSubscriber(ObjectType::Table, 1808, 'OnRegisterAssistedSetup', '', false, false)]
+    local procedure "AggregatedAssistedSetup.OnRegisterAssistedSetup"(var TempAggregatedAssistedSetup: Record 1808 Temporary )
+    var
+        CustomerAPIControl:Record CustomerAPIControl;
+    begin
+        TempAggregatedAssistedSetup.AddExtensionAssistedSetup(PAGE::AmazonAPIWizard,
+                                                              'Set up AmazonAPI Information',
+                                                              TRUE,
+                                                              CustomerAPIControl.RECORDID,
+                                                              GetAmazonAPISetupStatus(TempAggregatedAssistedSetup),
+                                                              '');
+
+                                                               TempAggregatedAssistedSetup.AddExtensionAssistedSetup(PAGE::EbayPIWizard,
+                                                              'Set up EbayAPI Information',
+                                                              TRUE,
+                                                              CustomerAPIControl.RECORDID,
+                                                              GetEbayAPISetupStatus(TempAggregatedAssistedSetup),
+                                                              '');
+    end;
+
+    local procedure GetAmazonAPISetupStatus(AggregatedAssistedSetup:Record "Aggregated Assisted Setup"): Integer
+    var
+        CustomerAPIControl:Record CustomerAPIControl;
+    begin
+        if CustomerAPIControl.Get('AmazonAPI') then
+           AggregatedAssistedSetup.Status := AggregatedAssistedSetup.Status::Completed
+        else
+           AggregatedAssistedSetup.Status := AggregatedAssistedSetup.Status::"Not Started";
+
+        exit(AggregatedAssistedSetup.Status);   
+    end;
+
+    local procedure GetEbayAPISetupStatus(AggregatedAssistedSetup:Record "Aggregated Assisted Setup"): Integer
+    var
+        CustomerAPIControl:Record CustomerAPIControl;
+    begin
+        if CustomerAPIControl.Get('EbayAPI') then
+           AggregatedAssistedSetup.Status := AggregatedAssistedSetup.Status::Completed
+        else
+           AggregatedAssistedSetup.Status := AggregatedAssistedSetup.Status::"Not Started";
+
+        exit(AggregatedAssistedSetup.Status);   
+    end;
 }
 

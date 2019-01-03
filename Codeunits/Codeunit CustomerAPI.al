@@ -1,4 +1,4 @@
-codeunit 70149350 CustomerAPI
+codeunit 70149350 "ICP CustomerAPI"
 {
     // version CustomerAPI
 
@@ -7,22 +7,22 @@ codeunit 70149350 CustomerAPI
     begin
     end;
 
-    procedure GetInventoryFeed2(pCustomerAPIIdentifier : Code[36];var pXMLPort : XMLport InventoryFeed;pItemFilter : Text[255]);
+    procedure GetInventoryFeed2(pCustomerAPIIdentifier : Code[36];var pXMLPort : XMLport "ICP InventoryFeed";pItemFilter : Text[255]);
     begin
         pXMLPort.SetParameters(pCustomerAPIIdentifier,pItemFilter);
     end;
 
-    procedure GetOrderStatusFeed(pCustomerAPIIdentifier : Code[36];var pXMLPort : XMLport OrderStatusFeed;pOrderFilter : Text[255];pStatusFilter : Text[255]);
+    procedure GetOrderStatusFeed(pCustomerAPIIdentifier : Code[36];var pXMLPort : XMLport "ICP OrderStatusFeed";pOrderFilter : Text[255];pStatusFilter : Text[255]);
     begin
         pXMLPort.SetParameters(pCustomerAPIIdentifier,pOrderFilter,pStatusFilter);
     end;
 
-    procedure GetShippingInfoFeed(pCustomerAPIIdentifier : Code[50];var pXMLPort : XMLport ShippingInfoFeed);
+    procedure GetShippingInfoFeed(pCustomerAPIIdentifier : Code[50];var pXMLPort : XMLport "ICP ShippingInfoFeed");
     begin
         pXMLPort.SetParameters(pCustomerAPIIdentifier);
     end;
 
-    procedure GetPriceFeed(var pXMLPort : XMLport Prices;pAPIIdentifier : Code[36];pCustomerNo : Code[10];pVendorNo : Code[10];pItemFilter : Text[255]);
+    procedure GetPriceFeed(var pXMLPort : XMLport "ICP Prices";pAPIIdentifier : Code[36];pCustomerNo : Code[10];pVendorNo : Code[10];pItemFilter : Text[255]);
     begin
         pXMLPort.SetParameters(pAPIIdentifier,pCustomerNo,pVendorNo,pItemFilter);
     end;
@@ -59,16 +59,16 @@ codeunit 70149350 CustomerAPI
     [EventSubscriber(ObjectType::Table, 1808, 'OnRegisterAssistedSetup', '', false, false)]
     local procedure "AggregatedAssistedSetup.OnRegisterAssistedSetup"(var TempAggregatedAssistedSetup: Record 1808 Temporary )
     var
-        CustomerAPIControl:Record CustomerAPIControl;
+        CustomerAPIControl:Record "ICP CustomerAPIControl";
     begin
-        TempAggregatedAssistedSetup.AddExtensionAssistedSetup(PAGE::AmazonAPIWizard,
+        TempAggregatedAssistedSetup.AddExtensionAssistedSetup(PAGE::"ICP AmazonAPIWizard",
                                                               'Set up AmazonAPI Information',
                                                               TRUE,
                                                               CustomerAPIControl.RECORDID,
                                                               GetAmazonAPISetupStatus(TempAggregatedAssistedSetup),
                                                               '');
 
-                                                               TempAggregatedAssistedSetup.AddExtensionAssistedSetup(PAGE::EbayPIWizard,
+                                                               TempAggregatedAssistedSetup.AddExtensionAssistedSetup(PAGE::"ICP EbayAPIWizard",
                                                               'Set up EbayAPI Information',
                                                               TRUE,
                                                               CustomerAPIControl.RECORDID,
@@ -78,7 +78,7 @@ codeunit 70149350 CustomerAPI
 
     local procedure GetAmazonAPISetupStatus(AggregatedAssistedSetup:Record "Aggregated Assisted Setup"): Integer
     var
-        CustomerAPIControl:Record CustomerAPIControl;
+        CustomerAPIControl:Record "ICP CustomerAPIControl";
     begin
         if CustomerAPIControl.Get('AmazonAPI') then
            AggregatedAssistedSetup.Status := AggregatedAssistedSetup.Status::Completed
@@ -90,7 +90,7 @@ codeunit 70149350 CustomerAPI
 
     local procedure GetEbayAPISetupStatus(AggregatedAssistedSetup:Record "Aggregated Assisted Setup"): Integer
     var
-        CustomerAPIControl:Record CustomerAPIControl;
+        CustomerAPIControl:Record "ICP CustomerAPIControl";
     begin
         if CustomerAPIControl.Get('EbayAPI') then
            AggregatedAssistedSetup.Status := AggregatedAssistedSetup.Status::Completed
@@ -99,5 +99,6 @@ codeunit 70149350 CustomerAPI
 
         exit(AggregatedAssistedSetup.Status);   
     end;
+    
 }
 

@@ -1,4 +1,4 @@
-page 70149354 PurchaseHeader
+page 70149354 "ICP PurchaseHeader"
 {
     // version CustomerAPI
 

@@ -1,7 +1,7 @@
-page 70149362 AmazonAPIWizard
+page 70149362 "ICP AmazonAPIWizard"
 {
     PageType = NavigatePage;
-    SourceTable = CustomerAPIControl;
+    SourceTable = "ICP CustomerAPIControl";
     CaptionML = ENU='AmazonAPI Set Up';
     
     layout

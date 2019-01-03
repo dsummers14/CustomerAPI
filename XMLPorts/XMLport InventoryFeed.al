@@ -1,4 +1,4 @@
-xmlport 70149350 InventoryFeed
+xmlport 70149350 "ICP InventoryFeed"
 {
     // version CustomerAPI
 
@@ -136,7 +136,7 @@ xmlport 70149350 InventoryFeed
 
     var
         gApiIdentifier : Code[36];
-        gCustomerAPIControl : Record CustomerAPIControl;
+        gCustomerAPIControl : Record "ICP CustomerAPIControl";
         gItemFilter : Text[255];
         gLocationFilter : Text[1024];
 

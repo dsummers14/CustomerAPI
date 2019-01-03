@@ -1,4 +1,4 @@
-xmlport 70149352 Prices
+xmlport 70149352 "ICP Prices"
 {
     // version CustomerAPI
 
@@ -78,7 +78,7 @@ xmlport 70149352 Prices
 
     var
         gApiIdentifier : Code[36];
-        gCustomerAPIControl : Record CustomerAPIControl;
+        gCustomerAPIControl : Record "ICP CustomerAPIControl";
         gItemFilter : Text[255];
         gVendorNo : Code[10];
         gCustomerNo : Code[10];

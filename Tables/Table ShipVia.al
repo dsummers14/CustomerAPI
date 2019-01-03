@@ -1,4 +1,4 @@
-table 70149351 ShipVia
+table 70149351 "ICP ShipVia"
 {
     // version CustomerAPI
 

@@ -1,4 +1,4 @@
-page 70149352 Customer
+page 70149352 "ICP Customer"
 {
     // version CustomerAPI
 

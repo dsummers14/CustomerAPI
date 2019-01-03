@@ -1,4 +1,4 @@
-page 70149357 SalesHeader
+page 70149357 "ICP SalesHeader"
 {
     // version CustomerAPI
 

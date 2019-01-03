@@ -1,9 +1,9 @@
-page 70149353 "CustomerAPI Control"
+page 70149353 "ICP CustomerAPI Control"
 {
     // version CustomerAPI
 
     PageType = List;
-    SourceTable = CustomerAPIControl;
+    SourceTable = "ICP CustomerAPIControl";
 
     layout
     {
@@ -28,10 +28,6 @@ page 70149353 "CustomerAPI Control"
                     ApplicationArea = All;
                 }
                 field(AutoReleaseOrder;AutoReleaseOrder)
-                {
-                    ApplicationArea = All;
-                }
-                field(ItemIEGroupFilter;ItemIEGroupFilter)
                 {
                     ApplicationArea = All;
                 }

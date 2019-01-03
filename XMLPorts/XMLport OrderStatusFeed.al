@@ -1,4 +1,4 @@
-xmlport 70149351 OrderStatusFeed
+xmlport 70149351 "ICP OrderStatusFeed"
 {
     // version CustomerAPI
 
@@ -55,7 +55,7 @@ xmlport 70149351 OrderStatusFeed
 
     var
         gApiIdentifier : Code[36];
-        gCustomerAPIControl : Record CustomerAPIControl;
+        gCustomerAPIControl : Record "ICP CustomerAPIControl";
         gOrderFilter : Text[255];
         gStatusFilter : Text[255];
 

@@ -1,4 +1,4 @@
-page 70149358 SalesLine
+page 70149358 "ICP SalesLine"
 {
     // version CustomerAPI
 

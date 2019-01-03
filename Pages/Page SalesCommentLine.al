@@ -1,4 +1,4 @@
-page 70149356 SalesCommentLine
+page 70149356 "ICP SalesCommentLine"
 {
     // version CustomerAPI
 

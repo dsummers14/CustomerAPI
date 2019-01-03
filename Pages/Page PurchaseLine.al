@@ -1,4 +1,4 @@
-page 70149355 PurchaseLine
+page 70149355 "ICP PurchaseLine"
 {
     // version CustomerAPI
 

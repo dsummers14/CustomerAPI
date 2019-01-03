@@ -1,8 +1,8 @@
-page 70149359 ShipVia
+page 70149359 "ICP ShipVia"
 {
     // version CustomerAPI
 
-    SourceTable = ShipVia;
+    SourceTable = "ICP ShipVia";
 
     layout
     {

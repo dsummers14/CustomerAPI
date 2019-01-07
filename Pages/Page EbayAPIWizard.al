@@ -1,7 +1,7 @@
 page 70149363 "ICP EbayAPIWizard"
 {
     PageType = NavigatePage;
-    SourceTable = "ICP CustomerAPIControl";
+    SourceTable = CustomerAPIControl;
     CaptionML = ENU='EbayAPI Setup';
     
     layout

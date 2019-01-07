@@ -2,7 +2,7 @@ page 70149351 "ICP CustomerAPIControl"
 {
     // version CustomerAPI
 
-    SourceTable = "ICP CustomerAPIControl";
+    SourceTable = CustomerAPIControl;
 
     layout
     {

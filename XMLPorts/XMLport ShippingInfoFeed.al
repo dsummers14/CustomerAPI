@@ -78,7 +78,7 @@ xmlport 70149353 "ICP ShippingInfoFeed"
 
     var
         gCustomerApiIdentifier : Code[36];
-        gCustomerAPIControl : Record "ICP CustomerAPIControl";
+        gCustomerAPIControl : Record CustomerAPIControl;
 
     procedure SetParameters(pCustomerAPIIdentifier : Code[35]);
     begin

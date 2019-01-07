@@ -55,7 +55,7 @@ xmlport 70149351 "ICP OrderStatusFeed"
 
     var
         gApiIdentifier : Code[36];
-        gCustomerAPIControl : Record "ICP CustomerAPIControl";
+        gCustomerAPIControl : Record CustomerAPIControl;
         gOrderFilter : Text[255];
         gStatusFilter : Text[255];
 

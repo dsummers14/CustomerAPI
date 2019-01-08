@@ -518,21 +518,7 @@ page 70149350 "ICP Item"
             field("Identifier Code";"Identifier Code")
             {
             }
-            field("Duty Class";"Duty Class")
-            {
-            }
-            field("Consumptions (Qty.)";"Consumptions (Qty.)")
-            {
-            }
-            field("Outputs (Qty.)";"Outputs (Qty.)")
-            {
-            }
-            field("Rel. Scheduled Receipt (Qty.)";"Rel. Scheduled Receipt (Qty.)")
-            {
-            }
-            field("Rel. Scheduled Need (Qty.)";"Rel. Scheduled Need (Qty.)")
-            {
-            }
+          
         }
     }
 

@@ -5,8 +5,8 @@
         {
             "type": "al",
             "request": "launch",
-            "name": "Cloud Sandbox",
-            "server": "https://bcwms.eastus.cloudapp.azure.com/",
+            "name": "CustomerAPI Sandbox",
+            "server": "http://CustomerAPI/",
             "serverInstance": "NAV",
             "tenant": "",
             "authentication": "UserPassword"

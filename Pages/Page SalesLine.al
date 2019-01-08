@@ -498,10 +498,7 @@ page 70149358 "ICP SalesLine"
             field("Customer Disc. Group";"Customer Disc. Group")
             {
             }
-            field("Package Tracking No.";"Package Tracking No.")
-            {
-            }
-        }
+                  }
     }
 
     actions

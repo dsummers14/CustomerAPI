@@ -8,29 +8,40 @@ xmlport 70149351 "ICP OrderStatusFeed"
     {
         textelement(Orders)
         {
-            tableelement("<sales header>";"Sales Header")
+            tableelement(SalesHeader; "Sales Header")
             {
                 XmlName = 'Order';
-                fieldelement(OrderNo;"<Sales Header>"."No.")
+                fieldelement(OrderNo; SalesHeader."No.")
                 {
                 }
-                fieldelement(Status;"<Sales Header>".Status)
+                fieldelement(Status; SalesHeader.Status)
                 {
                 }
-                fieldelement(OrderDate;"<Sales Header>"."Order Date")
+                fieldelement(OrderDate; SalesHeader."Order Date")
                 {
                 }
-                fieldelement(ShippedDate;"<Sales Header>"."Shipment Date")
+                fieldelement(ShippedDate; SalesHeader."Shipment Date")
                 {
                 }
 
                 trigger OnPreXmlItem();
                 begin
-                    "<Sales Header>".SETFILTER("<Sales Header>"."Sell-to Customer No.",gCustomerAPIControl.CustomerNo);
+                    SalesHeader.SETFILTER(SalesHeader."Sell-to Customer No.", gCustomerAPIControl.CustomerNo);
                     if gOrderFilter <> '' then
-                               "<Sales Header>".SETFILTER("<Sales Header>"."No.",gOrderFilter);
+                        SalesHeader.SETFILTER(SalesHeader."No.", gOrderFilter);
                     if gStatusFilter <> '' then
-                               "<Sales Header>".SETFILTER("<Sales Header>".Status,gStatusFilter);
+                        SalesHeader.SETFILTER(SalesHeader.Status, gStatusFilter);
+
+                    onEndPreXMLItem(SalesHeader);
+                end;
+
+                trigger OnAfterGetRecord()
+                var
+
+                begin
+                    onStartAfterGetRecord(SalesHeader);
+
+                    onEndAfterGetRecord(SalesHeader);
                 end;
             }
         }
@@ -54,16 +65,33 @@ xmlport 70149351 "ICP OrderStatusFeed"
     end;
 
     var
-        gApiIdentifier : Code[36];
-        gCustomerAPIControl : Record CustomerAPIControl;
-        gOrderFilter : Text[255];
-        gStatusFilter : Text[255];
+        gApiIdentifier: Code[36];
+        gCustomerAPIControl: Record CustomerAPIControl;
+        gOrderFilter: Text[255];
+        gStatusFilter: Text[255];
 
-    procedure SetParameters(pTransferID : Code[36];pOrderFilter : Text[255];pStatusFilter : Text[255]);
+    procedure SetParameters(pTransferID: Code[36]; pOrderFilter: Text[255]; pStatusFilter: Text[255]);
     begin
         gApiIdentifier := pTransferID;
         gOrderFilter := pOrderFilter;
         gStatusFilter := pStatusFilter;
     end;
+
+    [IntegrationEvent(true, true)]
+    local procedure onStartAfterGetRecord(var Rec: Record "Sales Header")
+    begin
+    end;
+
+    [IntegrationEvent(true, true)]
+    local procedure onEndAfterGetRecord(Rec: Record "Sales Header")
+    begin
+    end;
+
+    [IntegrationEvent(true, true)]
+    local procedure onEndPreXMLItem(Rec: Record "Sales Header")
+    begin
+    end;
+
+
 }
 

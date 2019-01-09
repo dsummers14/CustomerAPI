@@ -1,6 +1,5 @@
-page 70149353 "ICP CustomerAPI Control"
+page 70149353 "ICP CustomerAPI Control List"
 {
-    // version CustomerAPI
 
     PageType = List;
     SourceTable = CustomerAPIControl;

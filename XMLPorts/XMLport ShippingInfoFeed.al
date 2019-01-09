@@ -1,55 +1,69 @@
 xmlport 70149353 "ICP ShippingInfoFeed"
 {
-    // version CustomerAPI
-
     UseDefaultNamespace = true;
+    Direction = Export;
 
     schema
     {
         textelement(ShippingInfos)
         {
-            textelement(ShippingInfo)
+            tableelement(ShippingInfo; "ICP ShippingInfo")
             {
                 MinOccurs = Zero;
-                textelement(OrderNumber)
+                XmlName = 'ShippingInfo';
+                SourceTableView = where (Processed = filter (false));
+
+                fieldelement(OrderNumber; ShippingInfo.OrderNumber)
                 {
                     MaxOccurs = Once;
                 }
-                textelement(TrackingNumber)
+                fieldelement(TrackingNumber; ShippingInfo.TrackingNumber)
                 {
                     MaxOccurs = Once;
                 }
-                textelement(DateShipped)
+                fieldelement(DateShipped; ShippingInfo.DateShipped)
                 {
                     MaxOccurs = Once;
                 }
-                textelement(Carrier)
+                fieldelement(Carrier; ShippingInfo.Carrier)
                 {
                     MaxOccurs = Once;
                 }
-                textelement(Service)
+                fieldelement(Service; ShippingInfo.Service)
                 {
                     MaxOccurs = Once;
                 }
-                textelement(CustomerOrderNumber)
+                fieldelement(CustomerOrderNumber; ShippingInfo.CustomerOrderNumber)
                 {
                     MaxOccurs = Once;
                 }
-                textelement(CustomerNo)
+                fieldelement(CustomerNumber; ShippingInfo.CustomerNumber)
                 {
                     MaxOccurs = Once;
                 }
-                textelement(ShippedItems)
+                fieldelement(MarketPlaceOrderNumber; ShippingInfo.MarketPlaceOrderNumber)
                 {
                     MaxOccurs = Once;
+                }
+                tableelement(ShippedItems; "ICP ShippingItem")
+                {
+                    MaxOccurs = Once;
+                    XmlName = 'ShippedItems';
+                    LinkTable = "ShippingInfo";
+                    LinkFields = "TrackingNumber" = field ("TrackingNumber");
+                    
                     textelement(ShippedItem)
                     {
                         MinOccurs = Zero;
-                        textelement(MarketItemNo)
+                        fieldelement(ItemNumber; ShippedItems.ItemNumber)
                         {
                             MaxOccurs = Once;
                         }
-                        textelement(Quantity)
+                        fieldelement(QuantityShipped; ShippedItems.QuantityShipped)
+                        {
+                            MaxOccurs = Once;
+                        }
+                        fieldelement(MarketPlaceItemNumber; ShippedItems.MarketPlaceItemNumber)
                         {
                             MaxOccurs = Once;
                         }
@@ -77,12 +91,30 @@ xmlport 70149353 "ICP ShippingInfoFeed"
     end;
 
     var
-        gCustomerApiIdentifier : Code[36];
-        gCustomerAPIControl : Record CustomerAPIControl;
+        gCustomerApiIdentifier: Code[36];
+        gCustomerAPIControl: Record CustomerAPIControl;
 
-    procedure SetParameters(pCustomerAPIIdentifier : Code[35]);
+    procedure SetParameters(pCustomerAPIIdentifier: Code[35]);
     begin
         gCustomerApiIdentifier := pCustomerAPIIdentifier;
     end;
+
+    [IntegrationEvent(true, true)]
+    local procedure onStartAfterGetRecord(var Rec: Record "Sales Header")
+    begin
+    end;
+
+    [IntegrationEvent(true, true)]
+    local procedure onEndAfterGetRecord(Rec: Record "Sales Header")
+    begin
+    end;
+
+    [IntegrationEvent(true, true)]
+    local procedure onEndPreXMLItem(Rec: Record "Sales Header")
+    begin
+    end;
+
+
+
 }
 

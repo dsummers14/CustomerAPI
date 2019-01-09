@@ -21,10 +21,10 @@ xmlport 70149350 "ICP InventoryFeed"
         textelement(Items)
         {
             MaxOccurs = Once;
-            tableelement(item;Item)
+            tableelement(item; Item)
             {
                 XmlName = 'Item';
-                fieldelement(ItemNo;Item."No.")
+                fieldelement(ItemNo; Item."No.")
                 {
                     MaxOccurs = Once;
                 }
@@ -56,62 +56,67 @@ xmlport 70149350 "ICP InventoryFeed"
 
                 trigger OnAfterGetRecord();
                 var
-                    AvailableQty : Decimal;
-                    Price : Decimal;
-                    ItemUOM : Record "Item Unit of Measure";
-                    DiscPercent : Decimal;
-                    DiscAmount : Decimal;
-                    SalesPrice : Record "Sales Price";
-                    LeadTime : Integer;
-                    MaxQty : Decimal;
+                    AvailableQty: Decimal;
+                    Price: Decimal;
+                    ItemUOM: Record "Item Unit of Measure";
+                    DiscPercent: Decimal;
+                    DiscAmount: Decimal;
+                    SalesPrice: Record "Sales Price";
+                    LeadTime: Integer;
+                    MaxQty: Decimal;
                 begin
+                    onStartAfterGetRecord(item);
+
                     AvailableQty := 0;
                     Price := 0;
                     LeadTime := 0;
 
-                    Item.SETFILTER("Location Filter",gCustomerAPIControl.LocationFilter);
-                    Item.CALCFIELDS(Inventory,"Qty. on Sales Order","Qty. on Asm. Component","Assembly BOM");
+                    Item.SETFILTER("Location Filter", gCustomerAPIControl.LocationFilter);
+                    Item.CALCFIELDS(Inventory, "Qty. on Sales Order", "Qty. on Asm. Component", "Assembly BOM");
 
                     AvailableQty := Item.Inventory - Item."Qty. on Sales Order" - Item."Qty. on Asm. Component";
 
                     if (AvailableQty < 0) then
-                      AvailableQty := 0;
+                        AvailableQty := 0;
 
-                    if ItemUOM.GET(Item."No.",Item."Base Unit of Measure") then begin
-                      if ItemUOM."Qty. per Unit of Measure" <> 0 then
-                       AvailableQty := AvailableQty / ItemUOM."Qty. per Unit of Measure";
+                    if ItemUOM.GET(Item."No.", Item."Base Unit of Measure") then begin
+                        if ItemUOM."Qty. per Unit of Measure" <> 0 then
+                            AvailableQty := AvailableQty / ItemUOM."Qty. per Unit of Measure";
                     end;
 
                     // If specific customer/item price record exists use it
                     SalesPrice.RESET;
-                    SalesPrice.SETRANGE("Sales Type",SalesPrice."Sales Type"::Customer);
-                    SalesPrice.SETRANGE("Sales Code",gCustomerAPIControl.CustomerNo);
-                    SalesPrice.SETRANGE("Item No.",Item."No.");
-                    SalesPrice.SETRANGE("Unit of Measure Code",Item."Base Unit of Measure");
-                    SalesPrice.SETFILTER("Ending Date",'%1|>=%2',0D,TODAY);
-                    SalesPrice.SETRANGE("Starting Date",0D,TODAY);
+                    SalesPrice.SETRANGE("Sales Type", SalesPrice."Sales Type"::Customer);
+                    SalesPrice.SETRANGE("Sales Code", gCustomerAPIControl.CustomerNo);
+                    SalesPrice.SETRANGE("Item No.", Item."No.");
+                    SalesPrice.SETRANGE("Unit of Measure Code", Item."Base Unit of Measure");
+                    SalesPrice.SETFILTER("Ending Date", '%1|>=%2', 0D, TODAY);
+                    SalesPrice.SETRANGE("Starting Date", 0D, TODAY);
 
-                    tAvailableQty := FORMAT(AvailableQty,0,'<standard Format,1>');
-                    tMapPrice := FORMAT(Item."Unit List Price" ,0,'<Precision,2:2><standard Format,1>');
-                    tPrice := FORMAT(Price - DiscAmount ,0,'<Precision,2:2><standard Format,1>');
-                    tLeadTime := FORMAT(LeadTime,0,'<standard Format,1>');
+                    tAvailableQty := FORMAT(AvailableQty, 0, '<standard Format,1>');
+                    tMapPrice := FORMAT(Item."Unit List Price", 0, '<Precision,2:2><standard Format,1>');
+                    tPrice := FORMAT(Price - DiscAmount, 0, '<Precision,2:2><standard Format,1>');
+                    tLeadTime := FORMAT(LeadTime, 0, '<standard Format,1>');
+
+                    onEndAfterGetRecord(item);
                 end;
 
                 trigger OnPreXmlItem();
                 begin
                     if gCustomerAPIControl.ItemCategoryFilter <> '' then
-                         Item.SETFILTER(Item."Item Category Code",gCustomerAPIControl.ItemCategoryFilter);
+                        Item.SETFILTER(Item."Item Category Code", gCustomerAPIControl.ItemCategoryFilter);
                     if gCustomerAPIControl.VendorFilter <> '' then
-                         Item.SETFILTER(Item."Vendor No.",gCustomerAPIControl.VendorFilter);
+                        Item.SETFILTER(Item."Vendor No.", gCustomerAPIControl.VendorFilter);
 
                     if gItemFilter <> '' then
-                       Item.SETFILTER(Item."No.",gItemFilter);
+                        Item.SETFILTER(Item."No.", gItemFilter);
 
+                    Item.SETFILTER("Inventory Posting Group", gCustomerAPIControl.InventoryPostingGroupFilter);
+                    Item.SETRANGE("Created From Nonstock Item", false);
+                    Item.SETRANGE(Blocked, false);
+                    Item.SETFILTER("Location Filter", gCustomerAPIControl.LocationFilter);
 
-                    Item.SETFILTER("Inventory Posting Group",gCustomerAPIControl.InventoryPostingGroupFilter);
-                    Item.SETRANGE("Created From Nonstock Item",false);
-                    Item.SETRANGE(Blocked,false);
-                    Item.SETFILTER("Location Filter",gCustomerAPIControl.LocationFilter);
+                    onEndPreXMLItem(item);
                 end;
             }
         }
@@ -132,18 +137,37 @@ xmlport 70149350 "ICP InventoryFeed"
     trigger OnPreXmlPort();
     begin
         gCustomerAPIControl.GET(gApiIdentifier);
+
     end;
 
     var
-        gApiIdentifier : Code[36];
-        gCustomerAPIControl : Record CustomerAPIControl;
-        gItemFilter : Text[255];
-        gLocationFilter : Text[1024];
+        gApiIdentifier: Code[36];
+        gCustomerAPIControl: Record CustomerAPIControl;
+        gItemFilter: Text[255];
+        gLocationFilter: Text[1024];
 
-    procedure SetParameters(pTransferID : Code[36];pItemFilter : Text[255]);
+    procedure SetParameters(pTransferID: Code[36]; pItemFilter: Text[255]);
     begin
         gApiIdentifier := pTransferID;
         gItemFilter := pItemFilter;
     end;
+
+    [IntegrationEvent(true, true)]
+    local procedure onStartAfterGetRecord(var Rec: Record Item)
+    begin
+    end;
+
+    [IntegrationEvent(true, true)]
+    local procedure onEndAfterGetRecord(Rec: Record Item)
+    begin
+    end;
+
+    [IntegrationEvent(true, true)]
+    local procedure onEndPreXMLItem(Rec: Record Item)
+    begin
+    end;
+
+
+
 }
 

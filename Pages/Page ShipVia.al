@@ -8,14 +8,18 @@ page 70149359 "ICP ShipVia"
     {
         area(content)
         {
-            field(ShipVia;ShipVia)
+            field(ShipVia; ShipVia)
             {
             }
-            field(ShippingAgentCode;ShippingAgentCode)
+            field(ShippingAgentCode; ShippingAgentCode)
+            {
+            }
+            field(ServiceCode; ServiceCode)
             {
             }
         }
     }
+
 
     actions
     {

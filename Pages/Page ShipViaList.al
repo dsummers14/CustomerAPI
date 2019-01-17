@@ -2,7 +2,7 @@ page 70149360 "ICP ShipVia List"
 {
     PageType = List;
     SourceTable = "ICP ShipVia";
-    CaptionML = ENU='CustomerAPI ShipVia Translations';
+    Caption ='CustomerAPI ShipVia Translations';
 
     layout
     {

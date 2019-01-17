@@ -17,7 +17,7 @@ codeunit 70149350 "ICP CustomerAPIWebServices"
         pXMLPort.SetParameters(pCustomerAPIIdentifier, pOrderFilter, pStatusFilter);
     end;
 
-    procedure GetShippingInfoFeed(pCustomerAPIIdentifier: Code[50]; var pXMLPort: XMLport "ICP ShippingInfoFeed");
+    procedure GetShippingInfoFeed(pCustomerAPIIdentifier: Code[35]; var pXMLPort: XMLport "ICP ShippingInfoFeed");
     begin
         pXMLPort.SetParameters(pCustomerAPIIdentifier);
     end;
@@ -38,20 +38,19 @@ codeunit 70149350 "ICP CustomerAPIWebServices"
         ReservMgt: Codeunit "Reservation Management";
         FullAutoReservation: Boolean;
     begin
-        if SalesLine.GET(pDocumentType, pDocumentNo, pLineNo) then begin
+        if SalesLine.GET(pDocumentType, pDocumentNo, pLineNo) then
             if (pQtyToReserve <> 0) then begin
                 ReservMgt.SetSalesLine(SalesLine);
                 ReservMgt.AutoReserve(FullAutoReservation, '', SalesLine."Shipment Date", pQtyToReserve, 0); //08/24/17 dRS -Needs changed
-                SalesLine.MODIFY;
-            end;
-        end;
+                SalesLine.MODIFY();
+            end;       
     end;
 
-    procedure GetNextNoSeriesNo(NoSeriesCode: Code[10]) NextNumber: Code[20];
+    procedure GetNextNoSeriesNo(NoSeriesCode: Code[20]) NextNumber: Code[20];
     var
         NoSeriesMgt: Codeunit NoSeriesManagement;
     begin
-        NoSeriesMgt.InitSeries(NoSeriesCode, '', TODAY, NextNumber, NoSeriesCode);
+        NoSeriesMgt.InitSeries(NoSeriesCode, '', TODAY(), NextNumber, NoSeriesCode);
     end;
 
 

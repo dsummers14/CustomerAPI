@@ -12,17 +12,17 @@ page 70149364 "ICP ShippingInfoList"
                 field(OrderNumber; OrderNumber)
                 {
                     ApplicationArea = All;
-                    CaptionML = ENU = 'Order Number';
+                    Caption  = 'Order Number';
                 }
                 field(TrackingNumber; TrackingNumber)
                 {
                     ApplicationArea = All;
-                    CaptionML = ENU = 'Tracking Number';
+                    Caption  = 'Tracking Number';
                 }
                 field(DateShipped; DateShipped)
                 {
                     ApplicationArea = All;
-                    CaptionML = ENU = 'Order Number';
+                    Caption  = 'Order Number';
                 }
                 field(Carrier; Carrier)
                 {
@@ -35,17 +35,17 @@ page 70149364 "ICP ShippingInfoList"
                 field(CustomerOrderNumber; CustomerOrderNumber)
                 {
                     ApplicationArea = All;
-                    CaptionML = ENU = 'Customer Order Number';
+                    Caption  = 'Customer Order Number';
                 }
                 field(MarketPlaceOrderNumber; MarketPlaceOrderNumber)
                 {
                     ApplicationArea = All;
-                    CaptionML = ENU = 'Market Place Order Number';
+                    Caption  = 'Market Place Order Number';
                 }
                 field(FreightCost; FreightCost)
                 {
                     ApplicationArea = All;
-                    CaptionML = ENU = 'Freight Cost';
+                    Caption  = 'Freight Cost';
                 }
                 field(Processed; Processed)
                 {
@@ -63,15 +63,7 @@ page 70149364 "ICP ShippingInfoList"
     {
         area(Processing)
         {
-            action(ActionName)
-            {
-                ApplicationArea = All;
-
-                trigger OnAction();
-                begin
-
-                end;
-            }
+          
         }
     }
 }

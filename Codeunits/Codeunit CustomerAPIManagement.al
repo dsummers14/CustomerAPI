@@ -23,8 +23,9 @@ codeunit 70149352 "ICP CustomerAPIManagement"
 
     procedure OpenShipViaList(Source: Text[10])
     var
-        ShipViaList: Page "ICP ShipVia List";
         ShipVia: Record "ICP ShipVia";
+        ShipViaList: Page "ICP ShipVia List";
+        
 
     begin
         case Source of
@@ -48,14 +49,14 @@ codeunit 70149352 "ICP CustomerAPIManagement"
         TempAggregatedAssistedSetup.AddExtensionAssistedSetup(PAGE::"ICP AmazonAPIWizard",
                                                               'Set up AmazonAPI Information',
                                                               TRUE,
-                                                              CustomerAPIControl.RECORDID,
+                                                              CustomerAPIControl.RECORDID(),
                                                               GetAmazonAPISetupStatus(TempAggregatedAssistedSetup),
                                                               '');
 
         TempAggregatedAssistedSetup.AddExtensionAssistedSetup(PAGE::"ICP EbayAPIWizard",
        'Set up EbayAPI Information',
        TRUE,
-       CustomerAPIControl.RECORDID,
+       CustomerAPIControl.RECORDID(),
        GetEbayAPISetupStatus(TempAggregatedAssistedSetup),
        '');
     end;

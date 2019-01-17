@@ -56,14 +56,13 @@ xmlport 70149350 "ICP InventoryFeed"
 
                 trigger OnAfterGetRecord();
                 var
+                    SalesPrice: Record "Sales Price";
+                     ItemUOM: Record "Item Unit of Measure";
                     AvailableQty: Decimal;
                     Price: Decimal;
-                    ItemUOM: Record "Item Unit of Measure";
-                    DiscPercent: Decimal;
                     DiscAmount: Decimal;
-                    SalesPrice: Record "Sales Price";
                     LeadTime: Integer;
-                    MaxQty: Decimal;
+                   
                 begin
                     onStartAfterGetRecord(item);
 
@@ -79,19 +78,19 @@ xmlport 70149350 "ICP InventoryFeed"
                     if (AvailableQty < 0) then
                         AvailableQty := 0;
 
-                    if ItemUOM.GET(Item."No.", Item."Base Unit of Measure") then begin
+                    if ItemUOM.GET(Item."No.", Item."Base Unit of Measure") then
                         if ItemUOM."Qty. per Unit of Measure" <> 0 then
                             AvailableQty := AvailableQty / ItemUOM."Qty. per Unit of Measure";
-                    end;
+                    
 
                     // If specific customer/item price record exists use it
-                    SalesPrice.RESET;
+                    SalesPrice.RESET();
                     SalesPrice.SETRANGE("Sales Type", SalesPrice."Sales Type"::Customer);
                     SalesPrice.SETRANGE("Sales Code", gCustomerAPIControl.CustomerNo);
                     SalesPrice.SETRANGE("Item No.", Item."No.");
                     SalesPrice.SETRANGE("Unit of Measure Code", Item."Base Unit of Measure");
-                    SalesPrice.SETFILTER("Ending Date", '%1|>=%2', 0D, TODAY);
-                    SalesPrice.SETRANGE("Starting Date", 0D, TODAY);
+                    SalesPrice.SETFILTER("Ending Date", '%1|>=%2', 0D, TODAY());
+                    SalesPrice.SETRANGE("Starting Date", 0D, TODAY());
 
                     tAvailableQty := FORMAT(AvailableQty, 0, '<standard Format,1>');
                     tMapPrice := FORMAT(Item."Unit List Price", 0, '<Precision,2:2><standard Format,1>');
@@ -141,8 +140,8 @@ xmlport 70149350 "ICP InventoryFeed"
     end;
 
     var
-        gApiIdentifier: Code[36];
         gCustomerAPIControl: Record CustomerAPIControl;
+        gApiIdentifier: Code[36];
         gItemFilter: Text[255];
         gLocationFilter: Text[1024];
 

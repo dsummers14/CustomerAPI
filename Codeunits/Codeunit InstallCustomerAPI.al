@@ -12,7 +12,7 @@ codeunit 70149351 "ICP InstallCustomerAPI"
     var
 
     local procedure CreateWebService(pObjectType: Option ,,,,,Codeunit,,,Page,Query;
-     pServiceName: text; pObjectID: Integer)
+     pServiceName: text[240]; pObjectID: Integer)
 
     var
         WebService: Record "Tenant Web Service";

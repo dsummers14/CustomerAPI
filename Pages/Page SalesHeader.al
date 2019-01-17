@@ -73,10 +73,6 @@ page 70149357 "ICP SalesHeader"
             }
             field("Ship-to County"; "Ship-to County")
             {
-                CaptionML = ENU = '<Ship-to County>',
-                            ESM = 'Envío a-Cód. país/región',
-                            FRC = 'Code pays/région (destinataire)',
-                            ENC = 'Ship-to Country/Region Code';
             }
             field("Ship-to Post Code"; "Ship-to Post Code")
             {

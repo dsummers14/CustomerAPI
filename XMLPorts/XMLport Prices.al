@@ -24,21 +24,20 @@ xmlport 70149352 "ICP Prices"
 
                 trigger OnAfterGetRecord();
                 var
-                    Price: Decimal;
                     SalesPrice: Record "Sales Price";
-                    DiscPercent: Decimal;
+                    Price: Decimal;
                     DiscAmount: Decimal;
                 begin
                     onStartAfterGetRecord(item);
 
                     // If specific customer/item price record exists use it
-                    SalesPrice.RESET;
+                    SalesPrice.RESET();
                     SalesPrice.SETRANGE("Sales Type", SalesPrice."Sales Type"::Customer);
                     SalesPrice.SETRANGE("Sales Code", gCustomerNo);
                     SalesPrice.SETRANGE("Item No.", Item."No.");
                     SalesPrice.SETRANGE("Unit of Measure Code", Item."Base Unit of Measure");
-                    SalesPrice.SETFILTER("Ending Date", '%1|>=%2', 0D, TODAY);
-                    SalesPrice.SETRANGE("Starting Date", 0D, TODAY);
+                    SalesPrice.SETFILTER("Ending Date", '%1|>=%2', 0D, TODAY());
+                    SalesPrice.SETRANGE("Starting Date", 0D, TODAY());
                     tPrice := FORMAT(Price - DiscAmount, 0, '<Precision,2:2><standard Format,1>');
 
                     onEndAfterGetRecord(item);
@@ -83,8 +82,8 @@ xmlport 70149352 "ICP Prices"
     end;
 
     var
-        gApiIdentifier: Code[36];
         gCustomerAPIControl: Record CustomerAPIControl;
+        gApiIdentifier: Code[36];
         gItemFilter: Text[255];
         gVendorNo: Code[10];
         gCustomerNo: Code[10];

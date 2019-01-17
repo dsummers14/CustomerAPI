@@ -49,7 +49,7 @@ page 70149358 "ICP SalesLine"
 
                 trigger OnValidate();
                 begin
-                    UpdateAmountFields;
+                    UpdateAmountFields();
                 end;
             }
             field("Outstanding Quantity";"Outstanding Quantity")
@@ -66,7 +66,7 @@ page 70149358 "ICP SalesLine"
 
                 trigger OnValidate();
                 begin
-                    UpdateAmountFields;
+                    UpdateAmountFields();
                 end;
             }
             field("Unit Cost (LCY)";"Unit Cost (LCY)")
@@ -507,7 +507,7 @@ page 70149358 "ICP SalesLine"
 
     trigger OnAfterGetRecord();
     begin
-        UpdateAmountFields;
+        UpdateAmountFields();
     end;
 
     trigger OnInsertRecord(BelowxRec : Boolean) : Boolean;
@@ -518,39 +518,22 @@ page 70149358 "ICP SalesLine"
         Rec.SetHideValidationDialog(true);
 
 
-        iSaleLine.RESET;
+        iSaleLine.RESET();
         iSaleLine.SETRANGE("Document Type",Rec."Document Type");
         iSaleLine.SETRANGE("Document No.",Rec."Document No.");
 
-        if iSaleLine.FINDLAST then iLastLineNo := iSaleLine."Line No.";
+        if iSaleLine.FINDLAST() then iLastLineNo := iSaleLine."Line No.";
 
         "Line No." := iLastLineNo + 10000;
     end;
 
     procedure UpdateAmountFields();
     var
-        SalesLine : Record "Sales Line";
-        SalesHeader : Record "Sales Header";
-        TempVATAmountLine0 : Record "VAT Amount Line" temporary;
-        TempVATAmountLine1 : Record "VAT Amount Line" temporary;
         SalesTaxCalculate : Codeunit "Sales Tax Calculate";
     begin
-        /*
-        SalesLine.RESET;
-        SalesHeader.GET("Document Type","Document No.");
-        SalesLine.SetSalesHeader(SalesHeader);
-        IF SalesHeader."Tax Area Code" = '' THEN BEGIN  // VAT
-          SalesLine.CalcVATAmountLines(0,SalesHeader,SalesLine,TempVATAmountLine0);
-          SalesLine.CalcVATAmountLines(1,SalesHeader,SalesLine,TempVATAmountLine1);
-          SalesLine.UpdateVATOnLines(0,SalesHeader,SalesLine,TempVATAmountLine0);
-          SalesLine.UpdateVATOnLines(1,SalesHeader,SalesLine,TempVATAmountLine1);
-        END ELSE
-          SalesLine.CalcSalesTaxLines(SalesHeader,SalesLine);
-        CurrPage.UPDATE(FALSE);
-        */
         
         Amount := "Line Amount";
-        "Amount Including VAT" := Amount + SalesTaxCalculate.CalculateTax("Tax Area Code","Tax Group Code","Tax Liable",TODAY,Amount,Quantity,0);
+        "Amount Including VAT" := Amount + SalesTaxCalculate.CalculateTax("Tax Area Code","Tax Group Code","Tax Liable",TODAY(),Amount,Quantity,0);
 
     end;
 }

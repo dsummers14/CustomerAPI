@@ -2,7 +2,7 @@ page 70149363 "ICP EbayAPIWizard"
 {
     PageType = NavigatePage;
     SourceTable = CustomerAPIControl;
-    CaptionML = ENU='EbayAPI Setup';
+    Caption='EbayAPI Setup';
     
     layout
     {
@@ -37,7 +37,7 @@ page 70149363 "ICP EbayAPIWizard"
             group(Step1)
             {
                 Visible = Currentstep = 1;
-                CaptionML = ENU='Step 1';
+                Caption='Step 1';
                 group(Identifier)
                 {
                     field(APIIdentifier;APIIdentifier)
@@ -49,12 +49,12 @@ page 70149363 "ICP EbayAPIWizard"
             group(Step2)
             {
                 Visible = Currentstep = 2;
-                CaptionML =ENU='Step 2';
+                Caption = 'Step 2';
             }
             group(Step3)
             {
                 Visible = Currentstep = 3;
-                CaptionML = ENU='All Done!';
+                Caption='All Done!';
             }
         }
     }
@@ -67,7 +67,7 @@ page 70149363 "ICP EbayAPIWizard"
             {
                ApplicationArea = Basic;
                Enabled = ActionBackAllowed;
-               CaptionML = ENU='Back';
+               Caption='Back';
                Image = PreviousRecord;
                InFooterBar = true;
                
@@ -80,7 +80,7 @@ page 70149363 "ICP EbayAPIWizard"
            {
                ApplicationArea = Basic;
                Enabled = ActionNextAllowed;
-               CaptionML = ENU='Next';
+               Caption='Next';
                Image = NextRecord;
                InFooterBar = true;
                
@@ -93,7 +93,7 @@ page 70149363 "ICP EbayAPIWizard"
            {
                ApplicationArea = Basic;
                Enabled = ActionFinishAllowed;
-               CaptionML = ENU='Finish';
+               Caption='Finish';
                Image = Approve;
                InFooterBar = true;
                
@@ -105,17 +105,16 @@ page 70149363 "ICP EbayAPIWizard"
         }
     }
     
-    var
-        CurrentStep: Integer;
-        ActionBackAllowed: Boolean;
-        ActionNextAllowed: Boolean;
-        ActionFinishAllowed: Boolean;
-        
+    var 
         MediaRespositoryStandard: Record "Media Repository";
         MediaRespositoryDone: Record "Media Repository";
         MediaResourcesStandard: Record "Media Resources";
         MediaResourcesDone: Record "Media Resources";
         TopBannerVisible: Boolean;
+        CurrentStep: Integer;
+        ActionBackAllowed: Boolean;
+        ActionNextAllowed: Boolean;
+        ActionFinishAllowed: Boolean;
         
     local procedure SetControls()
     var
@@ -154,8 +153,8 @@ local procedure LoadTopBanners()
 var
 
 begin
-    if MediaRespositoryStandard.get('AssistedSetup-NoText-400px.png',Format(CurrentClientType)) and
-     MediaRespositoryDone.get('AssistedSetupDone-NoText-400px.png',Format(CurrentClientType))
+    if MediaRespositoryStandard.get('AssistedSetup-NoText-400px.png',Format(CurrentClientType())) and
+     MediaRespositoryDone.get('AssistedSetupDone-NoText-400px.png',Format(CurrentClientType()))
     then
     if MediaResourcesStandard.Get(MediaRespositoryStandard."Media Resources Ref") and 
         MediaResourcesDone.Get(MediaRespositoryDone."Media Resources Ref") then

@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="en-US" original="CustomerAPI">
+    <body>
+      <group id="body">
+        <trans-unit id="Table 2700136739 - Field 2823591125 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>APIIdentifier</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP CustomerAPIControl - Field APIIdentifier - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2700136739 - Field 3689535207 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CustomerNo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP CustomerAPIControl - Field CustomerNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2700136739 - Field 1430287263 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ItemCategoryFilter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP CustomerAPIControl - Field ItemCategoryFilter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2700136739 - Field 1151459472 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VendorFilter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP CustomerAPIControl - Field VendorFilter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2700136739 - Field 2189833656 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EmailErrorsTo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP CustomerAPIControl - Field EmailErrorsTo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2700136739 - Field 521204252 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AutoReleaseOrder</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP CustomerAPIControl - Field AutoReleaseOrder - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2700136739 - Field 1023051227 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>IncludeInactiveItems</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP CustomerAPIControl - Field IncludeInactiveItems - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2700136739 - Field 1747312273 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ExcludeDropShipOnlyItems</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP CustomerAPIControl - Field ExcludeDropShipOnlyItems - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2700136739 - Field 2731046535 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SendOrderConfirmation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP CustomerAPIControl - Field SendOrderConfirmation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2700136739 - Field 3267737623 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>LocationFilter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP CustomerAPIControl - Field LocationFilter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2700136739 - Field 1888487661 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OrderLocation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP CustomerAPIControl - Field OrderLocation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2700136739 - Field 3744655703 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>InventoryPostingGroupFilter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP CustomerAPIControl - Field InventoryPostingGroupFilter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2700136739 - Field 866988654 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MonthsToArchive</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP CustomerAPIControl - Field MonthsToArchive - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2700136739 - Field 772077938 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FulfillmentOrderNos</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP CustomerAPIControl - Field FulfillmentOrderNos - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1737740210 - Field 2248457887 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OrderNumber</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShippingInfo - Field OrderNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1737740210 - Field 3956013896 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TrackingNumber</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShippingInfo - Field TrackingNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1737740210 - Field 3759534841 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DateShipped</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShippingInfo - Field DateShipped - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1737740210 - Field 4093983712 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Carrier</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShippingInfo - Field Carrier - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1737740210 - Field 2187938695 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Service</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShippingInfo - Field Service - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1737740210 - Field 771866979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CustomerOrderNumber</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShippingInfo - Field CustomerOrderNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1737740210 - Field 4287182921 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CustomerNumber</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShippingInfo - Field CustomerNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1737740210 - Field 717555516 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>FreightCost</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShippingInfo - Field FreightCost - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1737740210 - Field 2676967598 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MarketPlaceOrderNumber</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShippingInfo - Field MarketPlaceOrderNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1737740210 - Field 3208180638 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShippingInfo - Field Processed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1737740210 - Control 2248457887 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP ShippingInfo - Control OrderNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1737740210 - Control 3956013896 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tracking Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP ShippingInfo - Control TrackingNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1737740210 - Control 3759534841 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP ShippingInfo - Control DateShipped - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1737740210 - Control 771866979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Order Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP ShippingInfo - Control CustomerOrderNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1737740210 - Control 2676967598 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Market Place Order Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP ShippingInfo - Control MarketPlaceOrderNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1737740210 - Control 717555516 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Freight Cost</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP ShippingInfo - Control FreightCost - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1890527015 - Field 2248457887 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>OrderNumber</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShippingItem - Field OrderNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1890527015 - Field 3956013896 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>TrackingNumber</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShippingItem - Field TrackingNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1890527015 - Field 3256935186 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ItemNumber</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShippingItem - Field ItemNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1890527015 - Field 467492468 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>QuantityShipped</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShippingItem - Field QuantityShipped - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1890527015 - Field 2219377763 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>MarketPlaceItemNumber</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShippingItem - Field MarketPlaceItemNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 818112506 - Field 2397723431 - Property 62802879" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amazon,Ebay</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShipVia - Field Source - Property OptionCaption</note>
+        </trans-unit>
+        <trans-unit id="Table 818112506 - Field 2397723431 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Source</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShipVia - Field Source - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 818112506 - Field 2585562440 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ShipVia</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShipVia - Field ShipVia - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 818112506 - Field 477328378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ShippingAgentCode</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShipVia - Field ShippingAgentCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 818112506 - Field 4230426132 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ServiceCode</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShipVia - Field ServiceCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2680000745 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AmazonAPI Set Up</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP AmazonAPIWizard - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2680000745 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP AmazonAPIWizard - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2680000745 - Control 2445482498 - Property 1968111052" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select the customer that will be the Sell-To Customer for imported orders and used to determine the pricing on Inventory Feeds.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP AmazonAPIWizard - Control General - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 2680000745 - Control 2761351044 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inventory Feed Filters</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP AmazonAPIWizard - Control InventoryFeed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2680000745 - Control 2761351044 - Property 1968111052" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Use these filters to limit items being included in the inventory feed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP AmazonAPIWizard - Control InventoryFeed - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 2680000745 - Control 2299670661 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Import</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP AmazonAPIWizard - Control OrderImport - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2680000745 - Control 2299670661 - Property 1968111052" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select the location for imported orders and the number series to use.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP AmazonAPIWizard - Control OrderImport - Property InstructionalText</note>
+        </trans-unit>
+        <trans-unit id="Page 2680000745 - Control 772077938 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Number Series</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP AmazonAPIWizard - Control FulfillmentOrderNos - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2680000745 - Control 1178809860 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>All Done!</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP AmazonAPIWizard - Control Done - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2680000745 - Action 2438272767 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Back</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP AmazonAPIWizard - Action ActionBack - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2680000745 - Action 914282563 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Next</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP AmazonAPIWizard - Action ActionNext - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2680000745 - Action 3259912055 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Finish</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP AmazonAPIWizard - Action ActionFinish - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4022790394 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EbayAPI Setup</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP EbayAPIWizard - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4022790394 - Control 2916936581 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Step 1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP EbayAPIWizard - Control Step1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4022790394 - Control 2279239964 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Step 2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP EbayAPIWizard - Control Step2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4022790394 - Control 1641543347 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>All Done!</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP EbayAPIWizard - Control Step3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4022790394 - Action 2438272767 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Back</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP EbayAPIWizard - Action ActionBack - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4022790394 - Action 914282563 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Next</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP EbayAPIWizard - Action ActionNext - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4022790394 - Action 3259912055 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Finish</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP EbayAPIWizard - Action ActionFinish - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1845482552 - Control 2248457887 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP ShippingInfoList - Control OrderNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1845482552 - Control 3956013896 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tracking Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP ShippingInfoList - Control TrackingNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1845482552 - Control 3759534841 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Order Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP ShippingInfoList - Control DateShipped - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1845482552 - Control 771866979 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Order Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP ShippingInfoList - Control CustomerOrderNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1845482552 - Control 2676967598 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Market Place Order Number</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP ShippingInfoList - Control MarketPlaceOrderNumber - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1845482552 - Control 717555516 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Freight Cost</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP ShippingInfoList - Control FreightCost - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1886608024 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CustomerAPI ShipVia Translations</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page ICP ShipVia List - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

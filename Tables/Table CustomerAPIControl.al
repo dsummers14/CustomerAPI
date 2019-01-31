@@ -1,4 +1,4 @@
-table 70149350 CustomerAPIControl
+table 70149350 "ICP CustomerAPIControl"
 {
     // version CustomerAPI
 

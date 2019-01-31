@@ -2,7 +2,7 @@ page 70149353 "ICP CustomerAPI Control List"
 {
 
     PageType = List;
-    SourceTable = CustomerAPIControl;
+    SourceTable = "ICP CustomerAPIControl";
 
     layout
     {

@@ -44,7 +44,7 @@ codeunit 70149352 "ICP CustomerAPIManagement"
     [EventSubscriber(ObjectType::Table, 1808, 'OnRegisterAssistedSetup', '', false, false)]
     local procedure "AggregatedAssistedSetup.OnRegisterAssistedSetup"(var TempAggregatedAssistedSetup: Record 1808 Temporary)
     var
-        CustomerAPIControl: Record CustomerAPIControl;
+        CustomerAPIControl: Record "ICP CustomerAPIControl";
     begin
         TempAggregatedAssistedSetup.AddExtensionAssistedSetup(PAGE::"ICP AmazonAPIWizard",
                                                               'Set up AmazonAPI Information',
@@ -63,7 +63,7 @@ codeunit 70149352 "ICP CustomerAPIManagement"
 
     local procedure GetAmazonAPISetupStatus(AggregatedAssistedSetup: Record "Aggregated Assisted Setup"): Integer
     var
-        CustomerAPIControl: Record CustomerAPIControl;
+        CustomerAPIControl: Record "ICP CustomerAPIControl";
     begin
         if CustomerAPIControl.Get('AmazonAPI') then
             AggregatedAssistedSetup.Status := AggregatedAssistedSetup.Status::Completed
@@ -75,7 +75,7 @@ codeunit 70149352 "ICP CustomerAPIManagement"
 
     local procedure GetEbayAPISetupStatus(AggregatedAssistedSetup: Record "Aggregated Assisted Setup"): Integer
     var
-        CustomerAPIControl: Record CustomerAPIControl;
+        CustomerAPIControl: Record "ICP CustomerAPIControl";
     begin
         if CustomerAPIControl.Get('EbayAPI') then
             AggregatedAssistedSetup.Status := AggregatedAssistedSetup.Status::Completed

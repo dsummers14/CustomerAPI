@@ -1,7 +1,7 @@
 page 70149362 "ICP AmazonAPIWizard"
 {
     PageType = NavigatePage;
-    SourceTable = CustomerAPIControl;
+    SourceTable = "ICP CustomerAPIControl";
     Caption = 'AmazonAPI Set Up';
 
     layout
@@ -42,9 +42,16 @@ page 70149362 "ICP AmazonAPIWizard"
                     field(CustomerNo; CustomerNo)
                     {
                         ApplicationArea = Basic;
+                    trigger OnValidate()
+                    begin
+                        if CustomerNo <> '' then
+                          ActionNextAllowed := true
+                        else ActionNextAllowed := false; 
+                    end;
                     }
                 }
             }
+
             group(Step2)
             {
                 Visible = Currentstep = 2;
@@ -189,6 +196,7 @@ page 70149362 "ICP AmazonAPIWizard"
 
         CurrentStep := 1;
         SetControls();
+        ActionNextAllowed := false;
     end;
 
     trigger onInit()

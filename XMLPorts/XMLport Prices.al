@@ -82,7 +82,7 @@ xmlport 70149352 "ICP Prices"
     end;
 
     var
-        gCustomerAPIControl: Record CustomerAPIControl;
+        gCustomerAPIControl: Record "ICP CustomerAPIControl";
         gApiIdentifier: Code[36];
         gItemFilter: Text[255];
         gVendorNo: Code[10];

@@ -37,6 +37,7 @@ codeunit 70149350 "ICP CustomerAPIWebServices"
         SalesLine: Record "Sales Line";
         ReservMgt: Codeunit "Reservation Management";
         FullAutoReservation: Boolean;
+
     begin
         if SalesLine.GET(pDocumentType, pDocumentNo, pLineNo) then
             if (pQtyToReserve <> 0) then begin

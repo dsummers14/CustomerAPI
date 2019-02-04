@@ -44,9 +44,7 @@ page 70149362 "ICP AmazonAPIWizard"
                         ApplicationArea = Basic;
                     trigger OnValidate()
                     begin
-                        if CustomerNo <> '' then
-                          ActionNextAllowed := true
-                        else ActionNextAllowed := false; 
+                        SetControls(); 
                     end;
                     }
                 }
@@ -83,12 +81,23 @@ page 70149362 "ICP AmazonAPIWizard"
                     field(OrderLocation; OrderLocation)
                     {
                         ApplicationArea = Basic;
+                         
+                        trigger OnValidate()
+                        begin
+                            SetControls(); 
+                        end;
+
                     }
                     field(FulfillmentOrderNos; FulfillmentOrderNos)
                     {
                         Caption = 'Order Number Series';
                         ApplicationArea = Basic;
-                    }
+                    
+                        trigger OnValidate()
+                        begin
+                            SetControls();    
+                        end;
+                    }   
                 }
 
             }
@@ -132,6 +141,7 @@ page 70149362 "ICP AmazonAPIWizard"
                 trigger OnAction()
                 begin
                     Takestep(1);
+        
                 end;
             }
             action(ActionFinish)
@@ -173,6 +183,17 @@ page 70149362 "ICP AmazonAPIWizard"
         ActionBackAllowed := CurrentStep > 1;
         ActionNextAllowed := CurrentStep < 4;
         ActionFinishAllowed := CurrentStep = 4;
+
+        case CurrentStep of
+            1:
+                if CustomerNo = '' then 
+                    ActionNextAllowed := false;
+
+            3:
+                if (OrderLocation = '') or (FulfillmentOrderNos = '')  then
+                    ActionNextAllowed := false;
+        end;
+
     end;
 
     local procedure Takestep(Step: Integer)
@@ -196,7 +217,6 @@ page 70149362 "ICP AmazonAPIWizard"
 
         CurrentStep := 1;
         SetControls();
-        ActionNextAllowed := false;
     end;
 
     trigger onInit()

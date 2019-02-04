@@ -66,7 +66,10 @@ codeunit 70149352 "ICP CustomerAPIManagement"
         CustomerAPIControl: Record "ICP CustomerAPIControl";
     begin
         if CustomerAPIControl.Get('AmazonAPI') then
-            AggregatedAssistedSetup.Status := AggregatedAssistedSetup.Status::Completed
+            if (CustomerAPIControl.CustomerNo = '') or (CustomerAPIControl.OrderLocation = '') or 
+                (CustomerAPIControl.FulfillmentOrderNos = '') then   
+                    AggregatedAssistedSetup.Status := AggregatedAssistedSetup.Status::"Not Completed"
+            else AggregatedAssistedSetup.Status := AggregatedAssistedSetup.Status::Completed        
         else
             AggregatedAssistedSetup.Status := AggregatedAssistedSetup.Status::"Not Started";
 

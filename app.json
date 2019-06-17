@@ -1,5 +1,4 @@
-{
-  "id": "030f9b8e-1ff5-4394-9c88-8d6af675ff6d",
+{ "id": "030f9b8e-1ff5-4394-9c88-8d6af675ff6d",
   "name": "CustomerAPI",
   "publisher": "iCepts Technology Group Inc.",
   "brief": "" ,
@@ -14,12 +13,13 @@
   "capabilities": [],
   "dependencies": [],
   "screenshots": [],
-  "platform": "12.0.0.0",
-  "application": "12.0.0.0",
+  "platform": "13.0.0.0",
+  "application": "13.0.0.0",
   "idRange": {
     "from": 70149350,
     "to": 70149400
   },
-  "features": ["TranslationFile"]
-  
+  "features": ["TranslationFile"],
+  "showMyCode": true
+
 }

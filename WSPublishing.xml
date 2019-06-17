@@ -50,4 +50,11 @@
             <Published>true</Published>
         </TenantWebService>
          </TenantWebServiceCollection>
+         <TenantWebService>
+            <ObjectType>Query</ObjectType>
+            <ServiceName>ICPTermsCode</ServiceName>
+            <ObjectID>70149350</ObjectID>
+            <Published>true</Published>
+        </TenantWebService>
+         </TenantWebServiceCollection>
 </ExportedData>

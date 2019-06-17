@@ -57,12 +57,12 @@ xmlport 70149350 "ICP InventoryFeed"
                 trigger OnAfterGetRecord();
                 var
                     SalesPrice: Record "Sales Price";
-                     ItemUOM: Record "Item Unit of Measure";
+                    ItemUOM: Record "Item Unit of Measure";
                     AvailableQty: Decimal;
                     Price: Decimal;
                     DiscAmount: Decimal;
                     LeadTime: Integer;
-                   
+
                 begin
                     onStartAfterGetRecord(item);
 
@@ -81,7 +81,7 @@ xmlport 70149350 "ICP InventoryFeed"
                     if ItemUOM.GET(Item."No.", Item."Base Unit of Measure") then
                         if ItemUOM."Qty. per Unit of Measure" <> 0 then
                             AvailableQty := AvailableQty / ItemUOM."Qty. per Unit of Measure";
-                    
+
 
                     // If specific customer/item price record exists use it
                     SalesPrice.RESET();
@@ -143,7 +143,6 @@ xmlport 70149350 "ICP InventoryFeed"
         gCustomerAPIControl: Record "ICP CustomerAPIControl";
         gApiIdentifier: Code[36];
         gItemFilter: Text[255];
-        gLocationFilter: Text[1024];
 
     procedure SetParameters(pTransferID: Code[36]; pItemFilter: Text[255]);
     begin

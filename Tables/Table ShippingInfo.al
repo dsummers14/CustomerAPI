@@ -6,7 +6,7 @@ table 70149352 "ICP ShippingInfo"
         field(1; OrderNumber; Code[20])
         {
             DataClassification = CustomerContent;
-            TableRelation = "Sales Header"."No." where ("Document Type" = filter ('1'));
+            TableRelation = "Sales Header"."No." where ("Document Type" = filter (Order));
         }
         field(2; TrackingNumber; Text[30])
         {

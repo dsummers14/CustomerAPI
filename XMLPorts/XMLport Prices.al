@@ -96,17 +96,17 @@ xmlport 70149352 "ICP Prices"
         gItemFilter := pItemFilter;
     end;
 
-    [IntegrationEvent(true, true)]
+    [IntegrationEvent(true, false)]
     local procedure onStartAfterGetRecord(var Rec: Record item)
     begin
     end;
 
-    [IntegrationEvent(true, true)]
+    [IntegrationEvent(true, false)]
     local procedure onEndAfterGetRecord(Rec: Record Item)
     begin
     end;
 
-    [IntegrationEvent(true, true)]
+    [IntegrationEvent(true, false)]
     local procedure onEndPreXMLItem(Rec: Record Item)
     begin
     end;

@@ -227,7 +227,7 @@ page 70149352 "ICP Customer"
             field("Gen. Bus. Posting Group"; "Gen. Bus. Posting Group")
             {
             }
-            field(Picture; Picture)
+            field(Picture; Image)
             {
             }
             field("Post Code"; "Post Code")

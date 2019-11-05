@@ -11,7 +11,7 @@ xmlport 70149353 "ICP ShippingInfoFeed"
             {
                 MinOccurs = Zero;
                 XmlName = 'ShippingInfo';
-                SourceTableView = where (Processed = filter (false));
+                SourceTableView = where(Processed = filter(false));
 
                 fieldelement(OrderNumber; ShippingInfo.OrderNumber)
                 {
@@ -50,8 +50,8 @@ xmlport 70149353 "ICP ShippingInfoFeed"
                     MaxOccurs = Once;
                     XmlName = 'ShippedItems';
                     LinkTable = "ShippingInfo";
-                    LinkFields = "TrackingNumber" = field ("TrackingNumber");
-                    
+                    LinkFields = "TrackingNumber" = field("TrackingNumber");
+
                     textelement(ShippedItem)
                     {
                         MinOccurs = Zero;
@@ -91,25 +91,25 @@ xmlport 70149353 "ICP ShippingInfoFeed"
     end;
 
     var
-         gCustomerAPIControl: Record "ICP CustomerAPIControl";
+        gCustomerAPIControl: Record "ICP CustomerAPIControl";
         gCustomerApiIdentifier: Code[36];
-       
+
     procedure SetParameters(pCustomerAPIIdentifier: Code[35]);
     begin
         gCustomerApiIdentifier := pCustomerAPIIdentifier;
     end;
 
-    [IntegrationEvent(true, true)]
+    [IntegrationEvent(true, false)]
     local procedure onStartAfterGetRecord(var Rec: Record "Sales Header")
     begin
     end;
 
-    [IntegrationEvent(true, true)]
+    [IntegrationEvent(true, false)]
     local procedure onEndAfterGetRecord(Rec: Record "Sales Header")
     begin
     end;
 
-    [IntegrationEvent(true, true)]
+    [IntegrationEvent(true,false)]
     local procedure onEndPreXMLItem(Rec: Record "Sales Header")
     begin
     end;

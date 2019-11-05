@@ -1,5 +1,10 @@
 codeunit 70149352 "ICP CustomerAPIManagement"
 {
+
+    var
+        Info: ModuleInfo;
+        AlreadySetUpQst: Label 'The integration is already setup. \\Continue?';
+
     trigger OnRun()
     begin
 
@@ -25,7 +30,7 @@ codeunit 70149352 "ICP CustomerAPIManagement"
     var
         ShipVia: Record "ICP ShipVia";
         ShipViaList: Page "ICP ShipVia List";
-        
+
 
     begin
         case Source of
@@ -41,51 +46,80 @@ codeunit 70149352 "ICP CustomerAPIManagement"
     end;
 
 
-    [EventSubscriber(ObjectType::Table, 1808, 'OnRegisterAssistedSetup', '', false, false)]
-    local procedure "AggregatedAssistedSetup.OnRegisterAssistedSetup"(var TempAggregatedAssistedSetup: Record 1808 Temporary)
-    var
-        CustomerAPIControl: Record "ICP CustomerAPIControl";
-    begin
-        TempAggregatedAssistedSetup.AddExtensionAssistedSetup(PAGE::"ICP AmazonAPIWizard",
-                                                              'Set up AmazonAPI Information',
-                                                              TRUE,
-                                                              CustomerAPIControl.RECORDID(),
-                                                              GetAmazonAPISetupStatus(TempAggregatedAssistedSetup),
-                                                              '');
 
-        TempAggregatedAssistedSetup.AddExtensionAssistedSetup(PAGE::"ICP EbayAPIWizard",
-       'Set up EbayAPI Information',
-       TRUE,
-       CustomerAPIControl.RECORDID(),
-       GetEbayAPISetupStatus(TempAggregatedAssistedSetup),
-       '');
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Assisted Setup", 'OnRegister', '', true, true)]
+    local procedure "Assisted Setup_OnRegister"()
+    var
+        AssistedSetup: Codeunit "Assisted Setup";
+        AssistedSetupGroup: Enum "Assisted Setup Group";
+
+    begin
+        AssistedSetup.Add(GetAppId(), Page::"ICP AmazonAPIWizard", 'Set up your AmazonAPI Integration', AssistedSetupGroup::Extensions);
+        AssistedSetup.Add(GetAppId(), Page::"ICP EbayAPIWizard", 'Set up your EbayAPI Integration', AssistedSetupGroup::Extensions);
+        GetAmazonAPISetupStatus();
+        GetEbayAPISetupStatus();
     end;
 
-    local procedure GetAmazonAPISetupStatus(AggregatedAssistedSetup: Record "Aggregated Assisted Setup"): Integer
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Assisted Setup", 'OnReRunOfCompletedSetup', '', false, false)]
+    local procedure OnReRunOfCompletedSetup(ExtensionId: Guid; PageID: Integer; var Handled: Boolean)
+    begin
+        if ExtensionId <> GetAppId() then
+            exit;
+        case PageID of
+            Page::"ICP AmazonAPIWizard":
+                begin
+                    if Confirm(AlreadySetUpQst, true) then
+                        Page.Run(PAGE::"ICP AmazonAPIWizard");
+                    Handled := true;
+                end;
+            Page::"ICP EbayAPIWizard":
+                begin
+                    if Confirm(AlreadySetUpQst, true) then
+                        Page.Run(PAGE::"ICP EbayAPIWizard");
+                    Handled := true;
+                end;
+        end;
+    end;
+
+    local procedure GetAmazonAPISetupStatus()
     var
         CustomerAPIControl: Record "ICP CustomerAPIControl";
+        AssistedSetup: Codeunit "Assisted Setup";
     begin
         if CustomerAPIControl.Get('AmazonAPI') then
-            if (CustomerAPIControl.CustomerNo = '') or (CustomerAPIControl.OrderLocation = '') or 
-                (CustomerAPIControl.FulfillmentOrderNos = '') then   
-                    AggregatedAssistedSetup.Status := AggregatedAssistedSetup.Status::"Not Completed"
-            else AggregatedAssistedSetup.Status := AggregatedAssistedSetup.Status::Completed        
+            if (CustomerAPIControl.CustomerNo = '') or (CustomerAPIControl.OrderLocation = '') or
+                (CustomerAPIControl.FulfillmentOrderNos = '') then
+                AssistedSetup.ExistsAndIsNotComplete(GetAppId(), Page::"ICP AmazonAPIWizard")
+            else
+                AssistedSetup.Complete(GetAppId(), Page::"ICP AmazonAPIWizard")
         else
-            AggregatedAssistedSetup.Status := AggregatedAssistedSetup.Status::"Not Started";
+            AssistedSetup.Exists(GetAppId(), page::"ICP AmazonAPIWizard")
 
-        exit(AggregatedAssistedSetup.Status);
     end;
 
-    local procedure GetEbayAPISetupStatus(AggregatedAssistedSetup: Record "Aggregated Assisted Setup"): Integer
+    local procedure GetEbayAPISetupStatus()
     var
         CustomerAPIControl: Record "ICP CustomerAPIControl";
+        AssistedSetup: Codeunit "Assisted Setup";
     begin
         if CustomerAPIControl.Get('EbayAPI') then
-            AggregatedAssistedSetup.Status := AggregatedAssistedSetup.Status::Completed
+            if (CustomerAPIControl.CustomerNo = '') or (CustomerAPIControl.OrderLocation = '') or
+                (CustomerAPIControl.FulfillmentOrderNos = '') then
+                AssistedSetup.ExistsAndIsNotComplete(GetAppId(), Page::"ICP EbayAPIWizard")
+            else
+                AssistedSetup.Complete(GetAppId(), Page::"ICP EbayAPIWizard")
         else
-            AggregatedAssistedSetup.Status := AggregatedAssistedSetup.Status::"Not Started";
+            AssistedSetup.Exists(GetAppId(), page::"ICP EbayAPIWizard")
 
-        exit(AggregatedAssistedSetup.Status);
+    end;
+
+    local procedure GetAppId(): Guid
+    var
+        EmptyGuid: Guid;
+    begin
+        if Info.Id() = EmptyGuid then
+            NavApp.GetCurrentModuleInfo(Info);
+        exit(Info.Id());
     end;
 
     // Custom Event Subsciption Example

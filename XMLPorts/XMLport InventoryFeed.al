@@ -150,17 +150,17 @@ xmlport 70149350 "ICP InventoryFeed"
         gItemFilter := pItemFilter;
     end;
 
-    [IntegrationEvent(true, true)]
+    [IntegrationEvent(true, false)]
     local procedure onStartAfterGetRecord(var Rec: Record Item)
     begin
     end;
 
-    [IntegrationEvent(true, true)]
+    [IntegrationEvent(true, false)]
     local procedure onEndAfterGetRecord(Rec: Record Item)
     begin
     end;
 
-    [IntegrationEvent(true, true)]
+    [IntegrationEvent(true, false)]
     local procedure onEndPreXMLItem(Rec: Record Item)
     begin
     end;

@@ -203,6 +203,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table ICP ShipVia - Field ServiceCode - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Codeunit 1946236479 - NamedType 2007470713" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The integration is already setup. \\Continue?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit ICP CustomerAPIManagement - NamedType AlreadySetUpQst</note>
+        </trans-unit>
         <trans-unit id="Page 2680000745 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>AmazonAPI Set Up</source>
           <note from="Developer" annotates="general" priority="2"></note>

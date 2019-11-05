@@ -13,11 +13,11 @@ page 70149362 "ICP AmazonAPIWizard"
                 Editable = false;
                 Visible = TopBannerVisible and (CurrentStep < 4);
                 ShowCaption = false;
-                field(MediaResourcesStandard; MediaResourcesStandard."Media Reference")
+                field(MediaResourcesStandard; MediaResourcesStandardRec."Media Reference")
                 {
                     Editable = false;
                     ShowCaption = false;
-                    ApplicationArea = Basic;
+                    ApplicationArea = Basic, Suite;
                 }
             }
             group(DoneBanner)
@@ -25,11 +25,11 @@ page 70149362 "ICP AmazonAPIWizard"
                 Editable = false;
                 Visible = TopBannerVisible and (CurrentStep = 4);
                 ShowCaption = false;
-                field(MediaResourcesDone; MediaResourcesDone."Media Reference")
+                field(MediaResourcesDone; MediaResourcesDoneRec."Media Reference")
                 {
                     Editable = false;
                     ShowCaption = false;
-                    ApplicationArea = Basic;
+                    ApplicationArea = Basic, Suite;
                 }
             }
             group(Step1)
@@ -41,11 +41,11 @@ page 70149362 "ICP AmazonAPIWizard"
                     InstructionalText = 'Select the customer that will be the Sell-To Customer for imported orders and used to determine the pricing on Inventory Feeds.';
                     field(CustomerNo; CustomerNo)
                     {
-                        ApplicationArea = Basic;
-                    trigger OnValidate()
-                    begin
-                        SetControls(); 
-                    end;
+                        ApplicationArea = Basic, Suite;
+                        trigger OnValidate()
+                        begin
+                            SetControls();
+                        end;
                     }
                 }
             }
@@ -59,15 +59,15 @@ page 70149362 "ICP AmazonAPIWizard"
                     InstructionalText = 'Use these filters to limit items being included in the inventory feed.';
                     field(ItemCategoryFilter; ItemCategoryFilter)
                     {
-                        ApplicationArea = Basic;
+                        ApplicationArea = Basic, Suite;
                     }
                     field(VendorFilter; VendorFilter)
                     {
-                        ApplicationArea = Basic;
+                        ApplicationArea = Basic, Suite;
                     }
                     field(LocationFilter; LocationFilter)
                     {
-                        ApplicationArea = Basic;
+                        ApplicationArea = Basic, Suite;
                     }
                 }
             }
@@ -80,24 +80,24 @@ page 70149362 "ICP AmazonAPIWizard"
                     InstructionalText = 'Select the location for imported orders and the number series to use.';
                     field(OrderLocation; OrderLocation)
                     {
-                        ApplicationArea = Basic;
-                         
+                        ApplicationArea = Basic, Suite;
+
                         trigger OnValidate()
                         begin
-                            SetControls(); 
+                            SetControls();
                         end;
 
                     }
                     field(FulfillmentOrderNos; FulfillmentOrderNos)
                     {
                         Caption = 'Order Number Series';
-                        ApplicationArea = Basic;
-                    
+                        ApplicationArea = Basic, Suite;
+
                         trigger OnValidate()
                         begin
-                            SetControls();    
+                            SetControls();
                         end;
-                    }   
+                    }
                 }
 
             }
@@ -119,7 +119,7 @@ page 70149362 "ICP AmazonAPIWizard"
         {
             action(ActionBack)
             {
-                ApplicationArea = Basic;
+                ApplicationArea = Basic, Suite;
                 Enabled = ActionBackAllowed;
                 Caption = 'Back';
                 Image = PreviousRecord;
@@ -132,7 +132,7 @@ page 70149362 "ICP AmazonAPIWizard"
             }
             action(ActionNext)
             {
-                ApplicationArea = Basic;
+                ApplicationArea = Basic, Suite;
                 Enabled = ActionNextAllowed;
                 Caption = 'Next';
                 Image = NextRecord;
@@ -141,12 +141,12 @@ page 70149362 "ICP AmazonAPIWizard"
                 trigger OnAction()
                 begin
                     Takestep(1);
-        
+
                 end;
             }
             action(ActionFinish)
             {
-                ApplicationArea = Basic;
+                ApplicationArea = Basic, Suite;
                 Enabled = ActionFinishAllowed;
                 Caption = 'Finish';
                 Image = Approve;
@@ -167,8 +167,8 @@ page 70149362 "ICP AmazonAPIWizard"
     var
         MediaRespositoryDone: Record "Media Repository";
         MediaRespositoryStandard: Record "Media Repository";
-        MediaResourcesStandard: Record "Media Resources";
-        MediaResourcesDone: Record "Media Resources";
+        MediaResourcesStandardRec: Record "Media Resources";
+        MediaResourcesDoneRec: Record "Media Resources";
         CurrentStep: Integer;
         ActionBackAllowed: Boolean;
         ActionNextAllowed: Boolean;
@@ -186,11 +186,11 @@ page 70149362 "ICP AmazonAPIWizard"
 
         case CurrentStep of
             1:
-                if CustomerNo = '' then 
+                if CustomerNo = '' then
                     ActionNextAllowed := false;
 
             3:
-                if (OrderLocation = '') or (FulfillmentOrderNos = '')  then
+                if (OrderLocation = '') or (FulfillmentOrderNos = '') then
                     ActionNextAllowed := false;
         end;
 
@@ -233,9 +233,9 @@ page 70149362 "ICP AmazonAPIWizard"
         if MediaRespositoryStandard.get('AssistedSetup-NoText-400px.png', Format(CurrentClientType())) and
          MediaRespositoryDone.get('AssistedSetupDone-NoText-400px.png', Format(CurrentClientType()))
         then
-            if MediaResourcesStandard.Get(MediaRespositoryStandard."Media Resources Ref") and
-                MediaResourcesDone.Get(MediaRespositoryDone."Media Resources Ref") then
-                TopBannerVisible := MediaResourcesDone."Media Reference".HasValue();
+            if MediaResourcesStandardRec.Get(MediaRespositoryStandard."Media Resources Ref") and
+                MediaResourcesDoneRec.Get(MediaRespositoryDone."Media Resources Ref") then
+                TopBannerVisible := MediaResourcesDoneRec."Media Reference".HasValue();
     end;
 
 

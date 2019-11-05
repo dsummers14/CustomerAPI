@@ -49,12 +49,36 @@
             <ObjectID>70149359</ObjectID>
             <Published>true</Published>
         </TenantWebService>
-         </TenantWebServiceCollection>
          <TenantWebService>
             <ObjectType>Query</ObjectType>
             <ServiceName>ICPTermsCode</ServiceName>
             <ObjectID>70149350</ObjectID>
             <Published>true</Published>
         </TenantWebService>
-         </TenantWebServiceCollection>
+         <TenantWebService>
+            <ObjectType>Query</ObjectType>
+            <ServiceName>ICPCustomerCount</ServiceName>
+            <ObjectID>70149351</ObjectID>
+            <Published>true</Published>
+        </TenantWebService>
+         <TenantWebService>
+            <ObjectType>Query</ObjectType>
+            <ServiceName>ICPCustomerList</ServiceName>
+            <ObjectID>70149352</ObjectID>
+            <Published>true</Published>
+        </TenantWebService>
+         <TenantWebService>
+            <ObjectType>Query</ObjectType>
+            <ServiceName>ICPResource</ServiceName>
+            <ObjectID>70149353</ObjectID>
+            <Published>true</Published>
+        </TenantWebService>
+         <TenantWebService>
+            <ObjectType>Query</ObjectType>
+            <ServiceName>ICPReasonCode</ServiceName>
+            <ObjectID>70149354</ObjectID>
+            <Published>true</Published>
+        </TenantWebService>
+    
+    </TenantWebServiceCollection>
 </ExportedData>

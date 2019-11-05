@@ -66,7 +66,7 @@ xmlport 70149351 "ICP OrderStatusFeed"
 
     var
         gCustomerAPIControl: Record "ICP CustomerAPIControl";
-        gApiIdentifier: Code[36];       
+        gApiIdentifier: Code[36];
         gOrderFilter: Text[255];
         gStatusFilter: Text[255];
 
@@ -77,17 +77,17 @@ xmlport 70149351 "ICP OrderStatusFeed"
         gStatusFilter := pStatusFilter;
     end;
 
-    [IntegrationEvent(true, true)]
+    [IntegrationEvent(true, false)]
     local procedure onStartAfterGetRecord(var Rec: Record "Sales Header")
     begin
     end;
 
-    [IntegrationEvent(true, true)]
+    [IntegrationEvent(true, false)]
     local procedure onEndAfterGetRecord(Rec: Record "Sales Header")
     begin
     end;
 
-    [IntegrationEvent(true, true)]
+    [IntegrationEvent(true, false)]
     local procedure onEndPreXMLItem(Rec: Record "Sales Header")
     begin
     end;
